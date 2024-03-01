@@ -1,33 +1,41 @@
 import React from "react";
 import { useState } from "react";
 import "./App.css";
-import TodoList from "./components/List/TodoList";
+import TodoList from "./components/TodoList";
 
 function App() {
   const [value, setValue] = useState("");
+  const [todos, setTodos] = useState([]);
 
   // input value onChange
   const onInputChange = (e) => {
     setValue(e.target.value);
   };
 
-  // 제출
-  const onClick = (e) => {
+  // 등록
+  const onSubmit = (e) => {
     e.preventDefault();
     console.info(value);
+    console.info(value);
+    setTodos([...todos, value]);
+    setValue("");
   };
+
+  // 삭제
+  const onDelete = () => {};
+
   return (
     <div className="App">
       <div className="title">To-do list</div>
-      <div className="inputBox">
-        <input type="text" value={value} onChange={onInputChange} />
-        <button type="submit" onClick={onClick}>
-          add
-        </button>
+      <div className="Box">
+        <form onSubmit={onSubmit}>
+          <input type="text" value={value} onChange={onInputChange} />
+          <button className="addBtn" type="submit">
+            add
+          </button>
+        </form>
       </div>
-      <div>
-        <TodoList />
-      </div>
+      <TodoList todos={todos} onDelete={onDelete} />
     </div>
   );
 }

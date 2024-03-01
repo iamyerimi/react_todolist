@@ -15,3 +15,11 @@
 .TodoItem + .TodoItem {
   margin-top: 15px;
 }
+
+.deleteBtn {
+  padding: 10px;
+  background-color: #fff0f5;
+  border: none;
+  border-radius: 5px;
+  margin-left: auto;
+}
