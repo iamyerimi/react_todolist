@@ -22,7 +22,13 @@ function App() {
   };
 
   // 삭제
-  const onDelete = () => {};
+  const onDelete = (index) => {
+    const updatedTodos = [...todos];
+    updatedTodos.splice(index, 1);
+    setTodos(updatedTodos);
+    // todos.splice(index, 1);
+    // setTodos([...todos]);
+  };
 
   return (
     <div className="App">
